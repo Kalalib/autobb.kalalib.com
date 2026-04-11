@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoBB - Blackboard Downloader</title>
+    <meta
+      name="description"
+      content="AutoBB lets you download and organize Blackboard content in one click, saving hours every week."
+    />
+    <link rel="icon" type="image/png" href="assets/autobb_logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </head>
+  <body>
+    <header class="bb-shell" id="top">
+      <div class="bb-topbar">
+        <div class="bb-container topbar-inner">
+          <p class="crumb">
+            <ion-icon class="home-icon" name="home-outline"></ion-icon>
+            <span>Courses</span></p>
+          <p class="course-code">2025R2 Automatic Blackboard Downloader (KALA2026)</p>
+        </div>
+      </div>
+
+      <div class="bb-tabs bb-container">
+        <a class="tab active" href="#top">Content</a>
+        <a class="tab" href="#features">Features</a>
+        <a class="tab" href="#testimonials">Testimonials</a>
+        <a class="tab" href="#pricing">Pricing</a>
+      </div>
+
+      <div class="bb-banner">
+        <div class="bb-container">
+          <h1>Automatic Blackboard Downloader (KALA2026)</h1>
+        </div>
+      </div>
+
+      <div class="bb-course-wrap bb-container">
+        <section class="bb-main">
+          <div class="main-head">
+            <h2>Course Content</h2>
+            <a class="download-btn" href="#pricing">Download all</a>
+          </div>
+
+          <div class="content-row">
+            <span class="row-icon">i</span>
+            <p>Announcement</p>
+            <span class="dots">...</span>
+        </div>
+          <div class="content-row content-row-attachment">
+            <img
+              class="attachment-logo"
+              src="https://blackboard.cuhk.edu.hk/images/ci/sets/set12/image_on.svg"
+              alt="Attachment icon"
+            />
+            <div class="attachment-body">
+              <div class="attachment-meta">
+                <p class="attachment-name">demo.mp4</p>
+              </div>
+              <video class="attachment-video" controls autoplay loop muted playsinline preload="metadata">
+                <source src="assets/demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="bb-copy">
+            <p class="hint-label">
+              <ion-icon name="bulb-outline"></ion-icon>
+              Hint
+            </p>
+            <p class="hint-text">
+              AutoBB downloads all of these files and organizes them in one clean local folder structure.
+              No more opening every Blackboard item one by one.
+            </p>
+          </div>
+        </section>
+
+        <aside class="bb-side">
+          <article class="side-card">
+            <h3>Extension Author</h3>
+            <a
+              class="author-profile-link"
+              href="https://github.com/Gameboy612"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Gameboy612 GitHub profile"
+            >
+              <div class="author-profile">
+              <img
+                class="author-avatar"
+                src="https://github.com/Gameboy612.png?size=96"
+                alt="Gameboy612 profile picture"
+                loading="lazy"
+              />
+              <p class="author-info">
+                <strong>@Gameboy612</strong>
+                <span class="developer-tag">Developer</span>
+              </p>
+              </div>
+            </a>
+          </article>
+
+          <article class="side-card">
+            <h3>Details &amp; Actions</h3>
+            <ul>
+                <li><a href="#download" target="_blank">Download Link</a></li>
+                <li><a href="#pricing">Purchase Link</a></li>
+            </ul>
+          </article>
+
+          <article class="downloader-toast">
+            <h4>Blackboard Downloader</h4>
+            <p>Download complete.<br>Time saved this week: 3h 42m.</p>
+            <div class="progress"><span></span></div>
+          </article>
+        </aside>
+      </div>
+    </header>
+
+    <main class="page-main bb-container">
+
+      <section class="landing-section" id="pricing">
+        <div class="section-head">
+          <h2>Treat me boba.</h2>
+          <p>
+            Only <strong>HKD$40 per semester (4 months)</strong>. A tiny cost for a big time win.
+          </p>
+        </div>
+
+        <div class="panel pricing-panel">
+            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table pricing-table-id="prctbl_1TKkPoBIzdyT1INrMQrFDMCc"
+            publishable-key="pk_live_51TKk8zBIzdyT1INrPGQJKnSuEjntCXgPel7VQ8ehcQ81GjOTmiMRHQskwsmpbRKoyQB7wfl8mXFCu9C2qPellrlr00yQhzaoVS">
+            </stripe-pricing-table>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function easeInOutCubic(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function getFixedHeaderOffset() {
+          const topbar = document.querySelector(".bb-topbar");
+          const tabs = document.querySelector(".bb-tabs");
+          const topbarHeight = topbar ? topbar.offsetHeight : 0;
+          const tabsHeight = tabs ? tabs.offsetHeight : 0;
+          return topbarHeight + tabsHeight + 8;
+        }
+
+        function smoothScrollTo(targetY, durationMs) {
+          const startY = window.scrollY;
+          const distance = targetY - startY;
+          const startTime = performance.now();
+
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            const eased = easeInOutCubic(progress);
+            window.scrollTo(0, startY + distance * eased);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          }
+
+          requestAnimationFrame(step);
+        }
+
+        document.addEventListener("click", function (event) {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) {
+            return;
+          }
+
+          const hash = link.getAttribute("href");
+          if (!hash || hash === "#") {
+            return;
+          }
+
+          const target = document.querySelector(hash);
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+          const offset = getFixedHeaderOffset();
+          const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
+
+          if (prefersReducedMotion) {
+            window.scrollTo(0, targetY);
+          } else {
+            smoothScrollTo(targetY, 1200);
+          }
+
+          history.pushState(null, "", hash);
+        });
+      })();
+    </script>
+  </body>
+</html>
