@@ -49,12 +49,16 @@ body {
   background: var(--nav);
   color: #dce2ea;
   border-bottom: 1px solid #303746;
-  padding: 0 10px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+}
+
+.bb-topbar-above {
+  padding: 0 10px;
+  border-bottom: 1px solid #303746;
 }
 
 .topbar-inner {
@@ -106,7 +110,6 @@ body {
   white-space: nowrap;
   border-bottom: 1px solid #2a3040;
   position: fixed;
-  top: 40px;
   left: 0;
   width: 100%;
   z-index: 999;
