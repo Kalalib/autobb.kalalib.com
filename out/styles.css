@@ -492,6 +492,16 @@ body {
   .main-head h2 {
     font-size: 1.45rem;
   }
+
+    
+  .landing-section {
+    padding: 0 2em;
+    margin-top: 1.4rem;
+  }
+  .bb-container {
+    padding: 0 2em;
+  }
+
 }
 
 @media (max-width: 640px) {
