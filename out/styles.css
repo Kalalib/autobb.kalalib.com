@@ -573,6 +573,21 @@ body {
     max-width: 400px;
   }
 }
+@media (max-width: 1120px) {
+  .bb-course-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .bb-side {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+    
+  .pricing-panel stripe-pricing-table {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+  }
+}
 
 @media (max-width: 860px) {
   .feature-grid,
