@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AutoBB - Installation Guide</title>
+		<meta
+			name="description"
+			content="Install AutoBB manually in Chrome using Developer Mode and Load unpacked."
+		/>
+		<link rel="icon" type="image/png" href="assets/autobb_logo.png" />
+		<link rel="stylesheet" href="styles.css" />
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</head>
+	<body>
+		<header class="bb-shell" id="top">
+			<div class="bb-topbar">
+				<div class="bb-topbar-above">
+					<div class="bb-container topbar-inner">
+						<p class="crumb">
+							<ion-icon class="home-icon" name="home-outline"></ion-icon>
+							<span>AutoBB Setup</span>
+						</p>
+						<p class="course-code">Manual Installation (Developer Mode)</p>
+					</div>
+				</div>
+
+				<div class="bb-tabs bb-container">
+					<a class="tab" href="index.html">Home</a>
+					<a class="tab active" href="#top">Installation</a>
+					<a class="tab" href="#package">Guide</a>
+					<a class="tab" href="#troubleshooting">Troubleshooting</a>
+				</div>
+			</div>
+
+			<div class="bb-banner">
+				<div class="bb-container">
+					<h1>Install AutoBB Without Chrome Web Store</h1>
+				</div>
+			</div>
+
+			<div class="bb-course-wrap bb-container">
+				<section class="bb-main" id="package">
+					<div class="main-head">
+						<h2>Installation Package</h2>
+						<a class="download-btn" href="AutoBlackboardDownloader.zip" download>Download zip</a>
+					</div>
+
+					<div class="content-row content-row-attachment install-package-row">
+						<img
+							class="attachment-logo"
+							src="assets/autobb_logo.png"
+							alt="AutoBB logo"
+						/>
+						<div class="attachment-body">
+							<div class="attachment-meta">
+								<p class="attachment-name">AutoBlackboardDownloader.zip</p>
+								<p class="attachment-subtitle">Local install package (Load unpacked)</p>
+							</div>
+							<div class="install-badges">
+								<span class="install-badge">Chrome</span>
+								<span class="install-badge">Edge</span>
+								<span class="install-badge">Developer Mode</span>
+							</div>
+							<ol class="step-list step-list-inline">
+								<li>Download <strong>AutoBlackboardDownloader.zip</strong>.</li>
+								<li>Extract the zip into a normal folder (do not keep it compressed).</li>
+								<li>Open <strong>chrome://extensions</strong> or <strong>edge://extensions</strong>.</li>
+								<li>Enable <strong>Developer Mode</strong>.</li>
+								<li>Click <strong>Load unpacked</strong> and select the extracted folder.</li>
+								<li>Pin AutoBB and open Blackboard to start downloading.</li>
+							</ol>
+						</div>
+					</div>
+
+					<div class="bb-copy">
+						<p class="hint-label">
+							<ion-icon name="information-circle-outline"></ion-icon>
+							Before You Start
+						</p>
+						<p class="hint-text">
+							You cannot install directly from the zip file. Download and extract it first, then use
+							<strong>Load unpacked</strong> in your browser extension page.
+						</p>
+					</div>
+				</section>
+
+				<aside class="bb-side">
+					<article class="side-card">
+						<h3>Quick Checklist</h3>
+						<p>1. Download zip</p>
+						<p>2. Extract folder</p>
+						<p>3. Enable Developer Mode</p>
+						<p>4. Load unpacked</p>
+					</article>
+
+					<article class="downloader-toast">
+						<h4>Install Time</h4>
+						<p>Usually 1-2 minutes once the zip is downloaded.</p>
+						<div class="progress"><span></span></div>
+					</article>
+				</aside>
+			</div>
+		</header>
+
+		<main class="page-main bb-container">
+			<section class="landing-section" id="troubleshooting">
+				<div class="pricing-section-inner install-guide">
+					<div class="section-head">
+						<h2>Troubleshooting</h2>
+						<p>Common fixes if installation does not work on first try.</p>
+					</div>
+
+					<div class="feature-grid install-troubleshooting">
+						<article class="panel">
+							<h3>Manifest error</h3>
+							<p>Make sure you selected the extracted folder, not the zip file itself.</p>
+						</article>
+						<article class="panel">
+							<h3>Load unpacked is disabled</h3>
+							<p>Developer Mode is still off. Toggle it on and refresh the extensions page.</p>
+						</article>
+						<article class="panel">
+							<h3>Extension not visible</h3>
+							<p>Click the puzzle icon and pin AutoBB so it appears on your browser toolbar.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			(function () {
+				const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+				function easeInOutCubic(t) {
+					return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+				}
+
+				function getFixedHeaderOffset() {
+					const topbar = document.querySelector(".bb-topbar");
+					const tabs = document.querySelector(".bb-tabs");
+					const topbarHeight = topbar ? topbar.offsetHeight : 0;
+					const tabsHeight = tabs ? tabs.offsetHeight : 0;
+					return topbarHeight + tabsHeight + 8;
+				}
+
+				function smoothScrollTo(targetY, durationMs) {
+					const startY = window.scrollY;
+					const distance = targetY - startY;
+					const startTime = performance.now();
+
+					function step(now) {
+						const elapsed = now - startTime;
+						const progress = Math.min(elapsed / durationMs, 1);
+						const eased = easeInOutCubic(progress);
+						window.scrollTo(0, startY + distance * eased);
+
+						if (progress < 1) {
+							requestAnimationFrame(step);
+						}
+					}
+
+					requestAnimationFrame(step);
+				}
+
+				document.addEventListener("click", function (event) {
+					const link = event.target.closest('a[href^="#"]');
+					if (!link) {
+						return;
+					}
+
+					const hash = link.getAttribute("href");
+					if (!hash || hash === "#") {
+						return;
+					}
+
+					const target = document.querySelector(hash);
+					if (!target) {
+						return;
+					}
+
+					event.preventDefault();
+					const offset = getFixedHeaderOffset();
+					const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
+
+					if (prefersReducedMotion) {
+						window.scrollTo(0, targetY);
+					} else {
+						smoothScrollTo(targetY, 1200);
+					}
+
+					history.pushState(null, "", hash);
+				});
+			})();
+		</script>
+	</body>
+</html>
