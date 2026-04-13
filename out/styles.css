@@ -490,7 +490,7 @@ body {
   display: flex;
   flex: 1;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
   flex-direction: row;
   justify-content: center;
 }
@@ -498,6 +498,39 @@ body {
   display: flex;
   flex: 1;
   width: 1000px !important;
+}
+
+.site-disclaimer {
+  margin-top: 1.6rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #ccd4e0;
+  border-radius: 8px;
+  background: #f7f9fc;
+  color: #4b586a;
+  font-size: 0.9rem;
+}
+
+.site-disclaimer p {
+  margin: 0;
+}
+
+.site-disclaimer p + p {
+  margin-top: 0.45rem;
+}
+
+.site-disclaimer a {
+  color: #1f5f9d;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-disclaimer a:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  margin-top: 0.5rem;
+  color: #8c98a8;
 }
 
 .install-guide {
@@ -677,6 +710,10 @@ body {
 
   .step-list-inline {
     padding: 0.7rem 0.8rem 0.7rem 1.2rem;
+  }
+
+  .site-disclaimer {
+    padding: 0.85rem;
   }
 
   
