@@ -100,9 +100,13 @@
             </a>
           </article>
 
-          <article class="downloader-toast">
+          <article class="downloader-toast" id="downloader-toast">
             <h4>Blackboard Downloader</h4>
-            <p>Download complete.<br>Time saved this semester: 20m.</p>
+            <p id="downloader-stats">
+              <span id="downloader-users"></span>
+              <span id="downloader-usages"></span>
+              <span id="downloader-extra"></span>
+            </p>
             <div class="progress"><span></span></div>
           </article>
         </aside>
@@ -205,6 +209,29 @@
 
           history.pushState(null, "", hash);
         });
+
+        // Fetch and display downloader statistics
+        fetch('https://autobbapi.kalalib.com/statistics')
+          .then(function(response) { return response.json(); })
+          .then(function(data) {
+            var users = data.active_users;
+            var usages = data.total_usages;
+            var usersSpan = document.getElementById('downloader-users');
+            var usagesSpan = document.getElementById('downloader-usages');
+            if (usersSpan && usagesSpan) {
+              if (users > 100) {
+                usersSpan.textContent = 'Join us with ' + users + ' other active users. ';
+              }
+              usagesSpan.textContent = usages + ' total courses zipped and preserved.';
+            }
+          })
+          .catch(function() {
+            // fallback: hide stats if fetch fails
+            var usersSpan = document.getElementById('downloader-users');
+            var usagesSpan = document.getElementById('downloader-usages');
+            if (usersSpan) usersSpan.style.display = 'none';
+            if (usagesSpan) usagesSpan.style.display = 'none';
+          });
       })();
     </script>
   </body>
