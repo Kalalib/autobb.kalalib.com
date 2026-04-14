@@ -22,7 +22,7 @@
 							<ion-icon class="home-icon" name="home-outline"></ion-icon>
 							<span>AutoBB Setup</span>
 						</p>
-						<p class="course-code">Manual Installation (Developer Mode)</p>
+						<p class="course-code">Official Chrome Web Store Installation</p>
 					</div>
 				</div>
 
@@ -35,15 +35,14 @@
 
 			<div class="bb-banner">
 				<div class="bb-container">
-					<h1>Install AutoBB Without Chrome Web Store</h1>
+					<h1>Install AutoBB from the Chrome Web Store</h1>
 				</div>
 			</div>
 
 			<div class="bb-course-wrap bb-container">
 				<section class="bb-main" id="package">
 					<div class="main-head">
-						<h2>Installation Package</h2>
-						<a class="download-btn" href="AutoBlackboardDownloader.zip" download>Download zip</a>
+						<h2>One-Click Installation</h2>
 					</div>
 
 					<div class="content-row content-row-attachment install-package-row">
@@ -54,21 +53,47 @@
 						/>
 						<div class="attachment-body">
 							<div class="attachment-meta">
-								<p class="attachment-name">AutoBlackboardDownloader.zip</p>
-								<p class="attachment-subtitle">Local install package (Load unpacked)</p>
+								<p class="attachment-name">AutoBB Extension</p>
+                                <div class="install-badges">
+                                    <span class="install-badge">Chrome</span>
+                                </div>
+							</div>
+							<a class="download-btn" style="margin-top:1em;font-size:1.1em;" href="https://chromewebstore.google.com/detail/blackboard-downloader/hlkikejhhacaimlbmhnmlifmgknkpjbo?authuser=0&hl=en-GB" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store</a>
+						</div>
+					</div>
+
+					<!--
+					Old manual installation instructions are now hidden since the extension is published on the Chrome Web Store.
+					
+					<div class="main-head">
+						<h2>Installation Package</h2>
+						<a class="download-btn" href="./AutoBlackboardDownloader v1.0.0.crx" download>Download extension</a>
+					</div>
+
+					<div class="content-row content-row-attachment install-package-row">
+						<img
+							class="attachment-logo"
+							src="assets/autobb_logo.png"
+							alt="AutoBB logo"
+						/>
+						<div class="attachment-body">
+							<div class="attachment-meta">
+								<p class="attachment-name">Install package</p>
 							</div>
 							<div class="install-badges">
 								<span class="install-badge">Chrome</span>
 								<span class="install-badge">Edge</span>
-								<span class="install-badge">Developer Mode</span>
 							</div>
 							<ol class="step-list step-list-inline">
-								<li>Download <strong>AutoBlackboardDownloader.zip</strong>.</li>
-								<li>Extract the zip into a normal folder (do not keep it compressed).</li>
-								<li>Open <strong>chrome://extensions</strong> or <strong>edge://extensions</strong>.</li>
+								<li>Click <strong>Download extension</strong>.</li>
+								<li>Open <strong>chrome://extensions</strong>, <strong>edge://extensions</strong> or the equivalent in your browser.</li>
+								<img src="./assets/extension_page.png" alt="Browser extensions page screenshot" class="extension-page-screenshot" />
 								<li>Enable <strong>Developer Mode</strong>.</li>
-								<li>Click <strong>Load unpacked</strong> and select the extracted folder.</li>
-								<li>Pin AutoBB and open Blackboard to start downloading.</li>
+								<li>Drag the downloaded .crx file onto the extension page.</li>
+								<img src="./assets/add_extension.png" alt="Browser extensions page screenshot" class="extension-page-screenshot" />
+								<li>Press on details.</li>
+								<img src="./assets/press_details.png" alt="Browser extensions page screenshot" class="extension-page-screenshot" />
+								<li>Open Blackboard to start downloading.</li>
 							</ol>
 						</div>
 					</div>
@@ -83,22 +108,39 @@
 							<strong>Load unpacked</strong> in your browser extension page.
 						</p>
 					</div>
+					-->
 				</section>
 
 				<aside class="bb-side">
-					<article class="side-card">
-						<h3>Quick Checklist</h3>
-						<p>1. Download zip</p>
-						<p>2. Extract folder</p>
-						<p>3. Enable Developer Mode</p>
-						<p>4. Load unpacked</p>
-					</article>
+                    <article class="side-card">
+                        <h3>Extension Author</h3>
+                        <a
+                        class="author-profile-link"
+                        href="https://github.com/Gameboy612"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Open Gameboy612 GitHub profile"
+                        >
+                        <div class="author-profile">
+                        <img
+                            class="author-avatar"
+                            src="./assets/gameboy612.png"
+                            alt="Gameboy612 profile picture"
+                            loading="lazy"
+                        />
+                        <p class="author-info">
+                            <strong>@Gameboy612</strong>
+                            <span class="developer-tag">Developer</span>
+                        </p>
+                        </div>
+                        </a>
+                    </article>
 
-					<article class="downloader-toast">
-						<h4>Install Time</h4>
-						<p>Usually 1-2 minutes once the zip is downloaded.</p>
-						<div class="progress"><span></span></div>
-					</article>
+                    <article class="downloader-toast">
+                        <h4>Install Time</h4>
+                        <p>One click intall with Chrome Web Store!</p>
+                        <div class="progress"><span></span></div>
+                    </article>
 				</aside>
 			</div>
 		</header>
@@ -113,16 +155,12 @@
 
 					<div class="feature-grid install-troubleshooting">
 						<article class="panel">
-							<h3>Manifest error</h3>
-							<p>Make sure you selected the extracted folder, not the zip file itself.</p>
+							<h3>Failed to fetch</h3>
+							<p>If you've already purchased the subscription, try waiting 30-60 seconds for it to process. Contact support@kalalib.com if still not working.</p>
 						</article>
 						<article class="panel">
 							<h3>Load unpacked is disabled</h3>
 							<p>Developer Mode is still off. Toggle it on and refresh the extensions page.</p>
-						</article>
-						<article class="panel">
-							<h3>Extension not visible</h3>
-							<p>Click the puzzle icon and pin AutoBB so it appears on your browser toolbar.</p>
 						</article>
 					</div>
 				</div>
