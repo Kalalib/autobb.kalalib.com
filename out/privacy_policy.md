@@ -12,14 +12,14 @@ To provide this feature, the Extension may handle:
 
 - Blackboard course content and resource URLs that the user accesses while using Blackboard
 - File metadata needed for ZIP creation (for example: file names, folder paths, content IDs)
-- Blackboard account email address extracted from the user’s profile page, used only for subscription verification
+- Blackboard account email address extracted from the user’s profile page, used only for purchase verification
 - Technical request/response data needed to resolve signed download links
 
 ### 3. What We Collect and Why
 We only process data necessary to provide the download feature:
 
 - **Course/resource URLs and file metadata:** used to discover and download files selected by the user
-- **Profile email address:** sent to our verification endpoint to check subscription entitlement
+- **Profile email address:** sent to our verification endpoint to check lifetime-access entitlement
 - **Signed file URLs:** used transiently to download requested files
 
 We do not collect data for advertising, profiling, or unrelated analytics.
@@ -32,7 +32,7 @@ Host access is limited to the minimum domains required for functionality:
 - `https://*.blackboardcdn.com/*`  
   Used for signed file download URLs.
 - `https://autobbapi.kalalib.com/*`  
-  Used only for subscription verification requests.
+  Used only for purchase verification requests.
 
 No broad or unrelated host access is requested.
 

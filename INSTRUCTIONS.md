@@ -5,7 +5,7 @@ Build a landing page for a Blackboard Automation tool that downloads all the con
 Something related to "Saving hours of time"
 "Treat me boba" (for the pricing section, as a fun and catchy phrase to attract attention)
 
-The pricing is HKD$40 per semester (4 months), which is a very affordable price for students.
+The pricing is HKD$19 one-time for permanent (lifetime) access, which is a very affordable price for students.
 
 
 2. Show Off the Features: Reserve section with screenshots or icons that highlight the key features of the tool, such as easy content organization, fast downloads, and compatibility with various Blackboard versions.
@@ -21,6 +21,6 @@ Implement the page in the build/ folder.
 
 Here is the pricing table to use:
 <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-<stripe-pricing-table pricing-table-id="prctbl_1TKkPoBIzdyT1INrMQrFDMCc"
+<stripe-pricing-table pricing-table-id="prctbl_1UVARkBIzdyT1INrCwiz34Fo"
 publishable-key="pk_live_51TKk8zBIzdyT1INrPGQJKnSuEjntCXgPel7VQ8ehcQ81GjOTmiMRHQskwsmpbRKoyQB7wfl8mXFCu9C2qPellrlr00yQhzaoVS">
 </stripe-pricing-table>
